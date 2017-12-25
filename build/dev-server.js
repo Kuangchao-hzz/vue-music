@@ -8,6 +8,7 @@ if (!process.env.NODE_ENV) {
 
 const opn = require('opn')
 const path = require('path')
+const axios = request('axios')
 const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
@@ -24,6 +25,25 @@ const autoOpenBrowser = !!config.dev.autoOpenBrowser
 const proxyTable = config.dev.proxyTable
 
 const app = express()
+// const apiRoutes = express.Router()
+//
+// apiRoutes.get('/getDiscList', function (req, res) {
+//   var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
+//   axios.get(url, {
+//     headers: {
+//       referer: 'https://c.y.qq.com/',
+//       host: 'c.y.qq.com'
+//     },
+//     params: req.query
+//   }).then((response) => {
+//     res.json(response.data)
+//   }).catch((e) => {
+//     console.log(e)
+//   })
+// })
+//
+//
+// app.use('/api', apiRoutes)
 const compiler = webpack(webpackConfig)
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {

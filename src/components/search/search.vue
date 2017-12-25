@@ -1,25 +1,27 @@
 <template>
-  <div class="recommend">
-    搜索页
+  <div class="search">
+    <div style="padding: 0 15px">
+      <swiper-out>
+        <div slot="btn">删除</div>
+        <div slot="btn">编辑</div>
+      </swiper-out>
+    </div>
   </div>
 </template>
 <script>
+  import SwiperOut from 'base/swiper-out/swiper-out'
   export default {
     data () {
       return {}
     },
     computed: {},
-    methods: {}
+    methods: {},
+    components: {
+      SwiperOut
+    }
   }
 </script>
-<style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
+<style lang="stylus" rel="stylesheet/stylus" type="text/stylus" scoped>
   @import "~common/css/variable"
 
-  .tab
-    color $color-theme
-    display flex
-    .tab-item{
-      flex 1 0 25%
-      text-align center
-    }
 </style>

@@ -2,7 +2,9 @@
   <div id="app">
     <MHeader></MHeader>
     <Tab></Tab>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
@@ -20,4 +22,7 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
   @import "common/css/variable.styl"
+
+  #app
+    background $color-background
 </style>

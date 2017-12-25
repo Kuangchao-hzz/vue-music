@@ -39,11 +39,21 @@
         this._setSliderWidth()
         this._initDots()
         this._initSlider()
+        if (this.autoPlay) {
+          this._play()
+        }
       }, 20)
+      window.addEventListener('resize', () => {
+        if (!this.slider) {
+          return
+        }
+        this._setSliderWidth(true)
+        this.slider.refresh()
+      })
     },
     methods: {
       // 设置slider的大小
-      _setSliderWidth () {
+      _setSliderWidth (isResize) {
         this.children = this.$refs.sliderGroup.children
         let width = 0
         let sliderWidth = this.$refs.slider.clientWidth
@@ -54,7 +64,7 @@
           width += sliderWidth
         }
 
-        if (this.loop) {
+        if (this.loop && !isResize) {
           width += 2 * sliderWidth
         }
         this.$refs.sliderGroup.style.width = width + 'px'
@@ -83,7 +93,25 @@
           pageIndex -= 1
         }
         this.currentPageIndex = pageIndex
+
+        if (this.autoPlay) {
+          clearTimeout(this.timer)
+          this._play()
+        }
+      },
+      // 自动轮播
+      _play () {
+        let pageIndex = this.currentPageIndex + 1
+        if (this.loop) {
+          pageIndex += 1
+        }
+        this.timer = setTimeout(() => {
+          this.slider.goToPage(pageIndex, 0, 400)
+        }, this.interval)
       }
+    },
+    destroyed () {
+      clearTimeout(this.timer)
     }
   }
 </script>
