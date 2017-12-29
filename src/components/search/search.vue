@@ -5,6 +5,7 @@
 </template>
 <script>
   import SwiperOut from 'base/swiper-out/swiper-out'
+  /* eslint-disable no-new */
   let map = null
   let placeSearch = null
   export default {
@@ -25,7 +26,7 @@
           placeSearch = new AMap.PlaceSearch({
             pageSize: 5,
             pageIndex: 1,
-            city: "010"
+            city: '010'
           })
           // TODO: 使用placeSearch对象调用关键字搜索的功能
         })
