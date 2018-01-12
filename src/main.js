@@ -9,7 +9,6 @@ import 'common/css/index.styl'
 
 // 解决移动端点击事件300ms延迟
 fastclick.attach(document.body)
-
 Vue.config.productionTip = false
 
 Vue.use(VueLazyLoad, {
