@@ -22,18 +22,18 @@ export function getData (el, name, val) {
   }
 }
 
-let elementStyle = document.createElement('div').style
-
-let vendor = (() => {
-  let transformNames = {
-    webkit: 'webkitTransform',
-    Moz: 'MozTransform',
-    O: 'OTransform',
-    ms: 'msTransform',
-    standard: 'transform'
-  }
-
-  for (let key in transformNames) {
-    if (elementStyle[transformNames]) {}
-  }
-})()
+// let elementStyle = document.createElement('div').style
+//
+// let vendor = (() => {
+//   let transformNames = {
+//     webkit: 'webkitTransform',
+//     Moz: 'MozTransform',
+//     O: 'OTransform',
+//     ms: 'msTransform',
+//     standard: 'transform'
+//   }
+//
+//   for (let key in transformNames) {
+//     if (elementStyle[transformNames]) {}
+//   }
+// })()
